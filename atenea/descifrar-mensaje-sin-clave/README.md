@@ -8,10 +8,6 @@ Ni las letras mayúsculas ni las vocales con tildes se sustituyen por lo que las
 
 ## Ejecución
 
--  `git clone https://github.com/KevinLiebergen/Podras-descifrar-el-mensaje-sin-clave.git`
-
--  `cd Podras-descifrar-el-mensaje-sin-clave`
-
 -  `python3 descifrarMensajeSinClave.py`
 
 El flag se encuentra escondido en el archivo creado, las letras mayúsculas dentro del flag hay que transformarlas a minúsculas.
