@@ -3,7 +3,16 @@ directories:
 - /todo.txt
 
 users:
-- fergus
+- admin
+- fergus:RolandDeschain
 - Blender
 
 
+users in system:
+- hugo:Password120 - hash: faca404fd5c0a31cf1897b823c695c85cffeb98d
+- shaun
+- sophie(?)
+
+
+user.txt 9a1f913eaaf2c9xxxxxxxxxxxxxxxxxx
+root.txt ee8fbbe1be4501xxxxxxxxxxxxxxxxxx 

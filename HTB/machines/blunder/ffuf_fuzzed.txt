@@ -1,0 +1,47 @@
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+
+       v1.1.0
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://10.10.10.191/FUZZ
+ :: Wordlist         : FUZZ: /usr/share/wordlists/dirb/common.txt
+ :: Extensions       : .txt .html .php 
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200,204,301,302,307,401,403
+________________________________________________
+
+.php                    [Status: 403, Size: 277, Words: 20, Lines: 10]
+.html                   [Status: 403, Size: 277, Words: 20, Lines: 10]
+                        [Status: 200, Size: 7561, Words: 794, Lines: 171]
+.hta.txt                [Status: 403, Size: 277, Words: 20, Lines: 10]
+.hta                    [Status: 403, Size: 277, Words: 20, Lines: 10]
+.hta.html               [Status: 403, Size: 277, Words: 20, Lines: 10]
+.hta.php                [Status: 403, Size: 277, Words: 20, Lines: 10]
+.htpasswd.php           [Status: 403, Size: 277, Words: 20, Lines: 10]
+.htaccess               [Status: 403, Size: 277, Words: 20, Lines: 10]
+.htaccess.php           [Status: 403, Size: 277, Words: 20, Lines: 10]
+.htaccess.html          [Status: 403, Size: 277, Words: 20, Lines: 10]
+.htpasswd               [Status: 403, Size: 277, Words: 20, Lines: 10]
+.htpasswd.txt           [Status: 403, Size: 277, Words: 20, Lines: 10]
+.htpasswd.html          [Status: 403, Size: 277, Words: 20, Lines: 10]
+.htaccess.txt           [Status: 403, Size: 277, Words: 20, Lines: 10]
+0                       [Status: 200, Size: 7561, Words: 794, Lines: 171]
+about                   [Status: 200, Size: 3280, Words: 225, Lines: 106]
+admin                   [Status: 301, Size: 0, Words: 1, Lines: 1]
+cgi-bin/                [Status: 301, Size: 0, Words: 1, Lines: 1]
+install.php             [Status: 200, Size: 30, Words: 5, Lines: 1]
+LICENSE                 [Status: 200, Size: 1083, Words: 155, Lines: 22]
+robots.txt              [Status: 200, Size: 22, Words: 3, Lines: 2]
+robots.txt              [Status: 200, Size: 22, Words: 3, Lines: 2]
+server-status           [Status: 403, Size: 277, Words: 20, Lines: 10]
+todo.txt                [Status: 200, Size: 118, Words: 20, Lines: 5]
+:: Progress: [18456/18456] :: Job [1/1] :: 128 req/sec :: Duration: [0:02:24] :: Errors: 0 ::
