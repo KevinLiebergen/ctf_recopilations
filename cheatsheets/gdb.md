@@ -29,6 +29,7 @@
 * Run the program
     * `(gdb) r`
     * `(gdb) run`
+    * `(gdb) run $(python3 -c "print('A'*200)")`
 
 * Continue to the next breakpoint
     * `(gdb) continue`
@@ -42,13 +43,19 @@
     * `(gdb) step`
     * `(gdb) s`
 
-* Call/print some function/variable
-    * `(gdb) print func("a")`
-    * `(gdb) p variable_a`
+* View registers
+    * `(gdb) info registers esp`
+    * `(gdb) info registers ebp`
+    * `...`
 
-* set
-    * `(gdb) set`
-    * `(gdb) s`
+* Examine
+    * `(gdb) x/`
+
+* Disasssembly
+    * `(gdb) disas main`
+
+* Print some hexadecimal characters as argument
+    * `(gdb) r $(printf "aaaaaabbbb\xa5\x51\x55\x55\x55\x55")`
 
 * Exit program
     * `(gdb) quit`

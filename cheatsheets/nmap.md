@@ -26,4 +26,6 @@
   * `$ nmap -T[0-5] 172.16.1.1`
 
 * Save in a file
-  * `$ nmap 172.16.1.1 -o scanning.txt` 
+  * `$ nmap 172.16.1.1 -o scanning.txt`
+
+

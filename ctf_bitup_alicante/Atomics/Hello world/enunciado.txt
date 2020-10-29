@@ -1,0 +1,15 @@
+Bienvenidos a Bitup Alicante edicción 2020, con este reto iniciamos el CTF de este año, espero que os guste. Así que vamos a lo que interesa, ¿Podrás decodificar el siguiente mensaje?
+
+
+Yml0dXAyMHt1bjRfbnUzdjRfM2QxY2MxMG5fMG5sMW4zfQ==
+
+
+===========================
+
+Base64 a eso y fuera
+
+
+`$ echo -n "Yml0dXAyMHt1bjRfbnUzdjRfM2QxY2MxMG5fMG5sMW4zfQ==" | base64 -d`
+
+
+bitup20{un4_nu3v4_3d1cc10n_0nl1n3}
