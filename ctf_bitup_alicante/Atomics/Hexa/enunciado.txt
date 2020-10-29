@@ -1,3 +1,5 @@
-Conseguimos acceder al chat que utilizó el Dr. Lecter para avisar a Hobbs de nuestra llegada. Pero... por alguna extraña razón, no había aviso alguno, solo encontramos un mensaje con números y letras. No sabemos lo que significa. ¿Podrás descubrirlo?
+Conseguimos acceder al chat que utilizó el Dr. Lecter para avisar a Hobbs de nuestra llegada. 
+
+Pero... por alguna extraña razón, no había aviso alguno, solo encontramos un mensaje con números y letras. No sabemos lo que significa. ¿Podrás descubrirlo?
 
 El mensaje es: 62 69 74 75 70 32 30 7b 6c 30 5f 73 34 62 33 6e 7d
