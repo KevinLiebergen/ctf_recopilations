@@ -5,6 +5,14 @@
     * `EBP register` Register to the bottom of the stack (Bottom Pointer)
     * `EIP register` Point address of the next instruction (Instruction Pointer)
 
+* Extra
+    * `PEDA` Python Exploit Development Assistance for GDB, [recommended](https://github.com/longld/peda).
+    * Inspect the functions and their address of the executable program
+        * `$ objdump -M intel -D ./executable ` 
+    * Maintain session
+        * `$ (python exploit.py; cat) | ./executable`
+        * `$ cat exploit - | ./executable`
+
 * Install
     * `$ sudo apt install gdb`
 
@@ -46,6 +54,7 @@
 * View registers
     * `(gdb) info registers esp`
     * `(gdb) info registers ebp`
+    * `(gdb) i r ebp`
     * `...`
 
 * Examine
