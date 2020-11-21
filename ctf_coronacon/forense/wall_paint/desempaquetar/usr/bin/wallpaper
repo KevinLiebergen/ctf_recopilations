@@ -1,0 +1,7 @@
+#!/bin/bash
+
+while [ 1 -lt 2 ]
+do
+	wget -O /usr/share/wallpapers/corp/wallpaper2.jpg https://wallpapercave.com/wp/fjEEA7q.jpg
+	sleep 300
+done

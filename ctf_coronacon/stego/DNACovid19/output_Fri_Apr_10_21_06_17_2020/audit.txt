@@ -1,0 +1,23 @@
+Foremost version 1.5.7 by Jesse Kornblum, Kris Kendall, and Nick Mikus
+Audit File
+
+Foremost started at Fri Apr 10 21:06:17 2020
+Invocation: foremost 2seqfragment.jpg -T 
+Output directory: /home/kevin/cibersecurity/ctf_coronacon/DNACovid19/output_Fri_Apr_10_21_06_17_2020
+Configuration file: /etc/foremost.conf
+------------------------------------------------------------------
+File: 2seqfragment.jpg
+Start: Fri Apr 10 21:06:17 2020
+Length: 151 KB (154802 bytes)
+ 
+Num	 Name (bs=512)	       Size	 File Offset	 Comment 
+
+0:	00000000.jpg 	     151 KB 	          0 	 
+Finish: Fri Apr 10 21:06:17 2020
+
+1 FILES EXTRACTED
+	
+jpg:= 1
+------------------------------------------------------------------
+
+Foremost finished at Fri Apr 10 21:06:17 2020
