@@ -21,3 +21,9 @@
 * Dump a process specified by the 11 PID
 	* `$ volatility -f snap.vmem --profile=WinXPSP2x86 procdump -p 11 --dump-dir .`
 	* `$ volatility -f snap.vmem --profile=WinXPSP2x86 memdump -p 11 --dump-dir .`
+
+
+* Information about truecrypt
+	* `$ volatility -f snap.vmem --profile WinXPSP2x86 truecryptsummary`
+	* `$ volatility -f snap.vmem --profile WinXPSP2x86 truecryptpassphrase`
+	* `$ volatility -f snap.vmem --profile WinXPSP2x86 truecryptmaster`
