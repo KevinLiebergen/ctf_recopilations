@@ -34,6 +34,18 @@
     * `(gdb) break 24`
     * `(gdb) b 24`
 
+* Break by address
+	* `(gdb) break *0x804855b`
+	* `(gdb) b *0x804855b`
+
+* Info breakpoints
+	* `(gdb) info breakpoints`
+	* `(gdb) i b`
+
+* Delete breakpoints
+	* `(gdb) delete 2`
+	* `(gdb) d 2`
+
 * Run the program
     * `(gdb) r`
     * `(gdb) run`
