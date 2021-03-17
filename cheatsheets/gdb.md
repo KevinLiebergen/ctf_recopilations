@@ -13,6 +13,13 @@
         * `$ (python exploit.py; cat) | ./executable`
         * `$ cat exploit - | ./executable`
 
+  * Interactive shell (python 2)
+    * `$ (python -c 'print("A"*5 + "\xde\xad\xbe\xef")'; cat;) | ./executable`
+
+  * __There are differences between Python 2 and 3 por exploitation!__
+    * [Python 2 vs 3 for Binary Exploitation Scripts](https://www.youtube.com/watch?v=FxNS-zSS7MQ)
+
+
 * Install
     * `$ sudo apt install gdb`
 
@@ -81,3 +88,5 @@
 * Exit program
     * `(gdb) quit`
     * `(gdb) q`
+
+
