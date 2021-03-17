@@ -1,5 +1,10 @@
 Vulnerabilidad que se explota realizando un buffer overflow, el objetivo es conseguir sobreescribir la dirección de retorno de la función para que llame al método bar.
 
+
+* Compilación:
+	* `$ gcc -m32 -o stackoverrun stackoverrun.c`
+
+
 Una vez ejecutamos y hallamos la dirección donde se encuentra el método bar, en este caso la dirección 0x5555555551a5 se sobreescribe la dirección pasando por parámetro.
 
 ```
